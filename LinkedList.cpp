@@ -80,6 +80,7 @@ void deleteFirst(node **head)
 {
     node *temp = *head;
     (*head) = temp->next;
+    temp->next = NULL;
 }
 
 void deleteLast(node **head)
@@ -92,7 +93,9 @@ void deleteLast(node **head)
 
 void deleteAfter(node *prevNode)
 {
+    node *temp = prevNode->next;
     prevNode->next = prevNode->next->next;
+    temp->next = NULL;
 }
 
 bool searchNode(node **head, int key)
